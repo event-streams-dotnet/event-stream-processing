@@ -31,6 +31,9 @@ namespace EventStreamProcessing.Kafka
             var sourceMessage = new Message<TSourceKey, TSourceValue>(sourceEvent.Key, sourceEvent.Value);
             var sinkMessage = await handlers[0].HandleMessage(sourceMessage) as Message<TSinkKey, TSinkValue>;
 
+            // Return if message filtered out
+            if (sinkMessage == null) return;
+
             // Produce event
             var sinkEvent = new Confluent.Kafka.Message<TSinkKey, TSinkValue>
             {
