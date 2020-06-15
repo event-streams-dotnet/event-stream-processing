@@ -46,7 +46,9 @@ namespace EventStreamProcessing.Sample.Worker
         {
             var config = new ProducerConfig
             {
-                BootstrapServers = brokerList
+                BootstrapServers = brokerList,
+                EnableIdempotence = true,
+                MessageSendMaxRetries = 10000000,
             };
 
             var producer = new ProducerBuilder<int, string>(config).Build();
