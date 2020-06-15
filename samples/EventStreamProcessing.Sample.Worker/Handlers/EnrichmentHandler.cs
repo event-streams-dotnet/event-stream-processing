@@ -22,8 +22,12 @@ namespace EventStreamProcessing.Sample.Worker.Handlers
             // Get greeting in supported language 
             // For simplicity, message key corresponds to selected language
             var message = (Message<int, string>)sourceMessage;
-            var greeting = languageStore[message.Key];
-            var value = message.Value.Replace("Hello", greeting);
+            var value = message.Value;
+            if (languageStore.TryGetValue(message.Key, out string val))
+            {
+                var greeting = languageStore[message.Key];
+                value = message.Value.Replace("Hello", greeting);
+            }
 
             // Call next handler
             var sinkMessage = new Message<int, string>(message.Key, value);
