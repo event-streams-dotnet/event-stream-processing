@@ -51,9 +51,16 @@ namespace EventStreamProcessing.Sample.Consumer
             {
                 try
                 {
-                    var topicSpecs = topics.Select(topicName => 
-                        new TopicSpecification { Name = topicName, ReplicationFactor = 1, NumPartitions = 1 });
-                    await adminClient.CreateTopicsAsync(topicSpecs);
+                    var meta = adminClient.GetMetadata(TimeSpan.FromSeconds(20));
+                    foreach (var topic in topics)
+                    {
+                        if (!meta.Topics.Exists(t => t.Topic == topic))
+                        {
+                            var topicSpecs = topics.Select(topicName => 
+                                new TopicSpecification { Name = topicName, ReplicationFactor = 1, NumPartitions = 1 });
+                            await adminClient.CreateTopicsAsync(topicSpecs);
+                        }
+                    }
                 }
                 catch (CreateTopicsException e)
                 {
@@ -87,10 +94,10 @@ namespace EventStreamProcessing.Sample.Consumer
             // will be used automatically (where available). The default deserializer for string
             // is UTF8. The default deserializer for Ignore returns null for all input data
             // (including non-null data).
-            using (var consumer = new ConsumerBuilder<Ignore, string>(config)
+            using (var consumer = new ConsumerBuilder<int, string>(config)
                 // Note: All handlers are called on the main .Consume thread.
                 .SetErrorHandler((_, e) => Console.WriteLine($"Error: {e.Reason}"))
-                .SetStatisticsHandler((_, json) => Console.WriteLine($"Statistics: {json}"))
+                // .SetStatisticsHandler((_, json) => Console.WriteLine($"Statistics: {json}"))
                 .SetPartitionsAssignedHandler((c, partitions) =>
                 {
                     Console.WriteLine($"Assigned partitions: [{string.Join(", ", partitions)}]");
