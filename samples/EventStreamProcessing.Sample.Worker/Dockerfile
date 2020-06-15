@@ -5,16 +5,16 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["samples/EventStreamProcessing.Sample/EventStreamProcessing.Sample.csproj", "samples/EventStreamProcessing.Sample/"]
-RUN dotnet restore "samples/EventStreamProcessing.Sample/EventStreamProcessing.Sample.csproj"
+COPY ["samples/EventStreamProcessing.Sample.Worker/EventStreamProcessing.Sample.Workercsproj", "samples/EventStreamProcessing.Sample.Worker/"]
+RUN dotnet restore "samples/EventStreamProcessing.Sample.Worker/EventStreamProcessing.Sample.Worker.csproj"
 COPY . .
-WORKDIR "/src/samples/EventStreamProcessing.Sample"
-RUN dotnet build "EventStreamProcessing.Sample.csproj" -c Release -o /app/build
+WORKDIR "/src/samples/EventStreamProcessing.Sample.Worker"
+RUN dotnet build "EventStreamProcessing.Sample.Worker.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "EventStreamProcessing.Sample.csproj" -c Release -o /app/publish
+RUN dotnet publish "EventStreamProcessing.Sample.Worker.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "EventStreamProcessing.Sample.dll"]
+ENTRYPOINT ["dotnet", "EventStreamProcessing.Sample.Worker.dll"]

@@ -5,14 +5,40 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": ".NET Core Launch (Worker)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/samples/EventStreamProcessing.Sample/bin/Debug/netcoreapp3.1/EventStreamProcessing.Sample.dll",
+            "program": "${workspaceFolder}/samples/EventStreamProcessing.Sample.Worker/bin/Debug/netcoreapp3.1/EventStreamProcessing.Sample.Worker.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/samples/EventStreamProcessing.Sample",
+            "cwd": "${workspaceFolder}/samples/EventStreamProcessing.Sample.Worker",
+            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Launch (Consumer)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/samples/EventStreamProcessing.Sample.Consumer/bin/Debug/netcoreapp3.1/EventStreamProcessing.Sample.Consumer.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/samples/EventStreamProcessing.Sample.Consumer",
+            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Launch (Producer)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/samples/EventStreamProcessing.Sample.Producer/bin/Debug/netcoreapp3.1/EventStreamProcessing.Sample.Producer.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/samples/EventStreamProcessing.Sample.Producer",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
