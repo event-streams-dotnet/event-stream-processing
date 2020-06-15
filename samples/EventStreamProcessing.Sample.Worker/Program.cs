@@ -43,17 +43,18 @@ namespace EventStreamProcessing.Sample.Worker
                         [1] = "Ciao",
                         [2] = "Bonjour",
                         [3] = "Hola",
+                        [4] = "Hello",
                     };
                     services.AddSingleton<IDictionary<int, string>>(languageStore);
 
                     // Add event processor
                     services.AddSingleton<IEventProcessor>(sp =>
                     {
-                        // Create components
+                        // Create logger, consumer, producers
                         var logger = sp.GetRequiredService<ILogger>();
-                        Confluent.Kafka.IConsumer<int, string> kafkaConsumer = KafkaUtils.CreateConsumer(
-                        consumerOptions.Brokers, consumerOptions.TopicsList,
-                        sp.GetRequiredService<ILogger>());
+                        var kafkaConsumer = KafkaUtils.CreateConsumer(
+                            consumerOptions.Brokers, consumerOptions.TopicsList,
+                            sp.GetRequiredService<ILogger>());
                         var producerOptions = sp.GetRequiredService<ProducerOptions>();
                         var kafkaErrorProducer = KafkaUtils.CreateProducer(
                             producerOptions.Brokers, producerOptions.ValidationTopic,
@@ -61,6 +62,8 @@ namespace EventStreamProcessing.Sample.Worker
                         var kafkaFinalProducer = KafkaUtils.CreateProducer(
                             producerOptions.Brokers, producerOptions.FinalTopic,
                             sp.GetRequiredService<ILogger>());
+
+                        // Create handlers
                         var handlers = new List<MessageHandler>
                         {
                             new ValidationHandler(
@@ -70,13 +73,15 @@ namespace EventStreamProcessing.Sample.Worker
                             new EnrichmentHandler(
                                 sp.GetRequiredService<IDictionary<int, string>>(), logger),
                             new FilterHandler(
-                                sp.GetRequiredService<IDictionary<int, string>>(), logger)
+                                sp.GetRequiredService<IDictionary<int, string>>(),
+                                m => !m.Value.Contains("Hello"), logger) // Filter out English greetings
                         };
 
                         // Create event processor
                         return new KafkaEventProcessor<int, string, int, string>(
                             new KafkaEventConsumer<int, string>(kafkaConsumer, logger),
-                            new KafkaEventProducer<int, string>(kafkaFinalProducer, producerOptions.FinalTopic, logger));
+                            new KafkaEventProducer<int, string>(kafkaFinalProducer, producerOptions.FinalTopic, logger),
+                            handlers.ToArray());
                     });
 
                     // Add worker

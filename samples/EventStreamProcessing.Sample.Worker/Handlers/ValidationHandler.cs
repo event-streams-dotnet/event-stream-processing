@@ -24,8 +24,13 @@ namespace EventStreamProcessing.Sample.Worker.Handlers
         {
             // Validate supported language 
             // For simplicity, message key corresponds to selected language
+            var validationPassed = false;
             var message = (Message<int, string>)sourceMessage;
-            if (!languageStore.ContainsKey(message.Key))
+            if (languageStore.ContainsKey(message.Key))
+            {
+                validationPassed = true;
+            }
+            else
             {
                 var errorMessage = $"No language corresponds to message key '{message.Key}'";
                 validationErrorProducer.ProduceEvent(
@@ -35,11 +40,15 @@ namespace EventStreamProcessing.Sample.Worker.Handlers
                         Value = errorMessage
                     });
                 logger.LogInformation($"Validation handler: {errorMessage}");
+                return null;
             }
 
             // Call next handler
             var sinkMessage = new Message<int, string>(message.Key, message.Value);
-            logger.LogInformation($"Validation handler: Passed { sinkMessage.Key } { sinkMessage.Value }");
+            if (validationPassed)
+            {
+                logger.LogInformation($"Validation handler: Passed { sinkMessage.Key } { sinkMessage.Value }");
+            }
             return await base.HandleMessage(sinkMessage);
         }
     }
