@@ -14,7 +14,7 @@
             "args": [],
             "cwd": "${workspaceFolder}/samples/EventStreamProcessing.Sample.Worker",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopAtEntry": false
         },
         {
@@ -27,7 +27,7 @@
             "args": [],
             "cwd": "${workspaceFolder}/samples/EventStreamProcessing.Sample.Consumer",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopAtEntry": false
         },
         {
@@ -40,7 +40,7 @@
             "args": [],
             "cwd": "${workspaceFolder}/samples/EventStreamProcessing.Sample.Producer",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopAtEntry": false
         },
         {
