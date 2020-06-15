@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BC37F2DB-7A32-4F1A-963E-343C47E1684A}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6DBC696E-8A4A-4688-8E38-53504A5A88D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F4300E8B-7118-4EBA-8843-79AE160321B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventStreamProcessing.Abstractions", "src\EventStreamProcessing.Abstractions\EventStreamProcessing.Abstractions.csproj", "{79B09293-6E07-470E-A939-DB7E2154EB54}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventStreamProcessing.Kafka", "src\EventStreamProcessing.Kafka\EventStreamProcessing.Kafka.csproj", "{0034485C-2DDE-4C95-9BD3-81979DAD4872}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventStreamProcessing.Test", "tests\EventStreamProcessing.Test\EventStreamProcessing.Test.csproj", "{29FE4580-AC29-4C9F-A6C7-0FADC8F371D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{83637EDE-7B84-4ECC-9607-36905889D7B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventStreamProcessing.Sample.Worker", "samples\EventStreamProcessing.Sample.Worker\EventStreamProcessing.Sample.Worker.csproj", "{4795B463-AED1-4A67-94FE-6F3E3991D52A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStreamProcessing.Sample.Consumer", "samples\EventStreamProcessing.Sample.Consumer\EventStreamProcessing.Sample.Consumer.csproj", "{955DC4BA-0B42-4A4A-A674-33C8A3E8F588}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventStreamProcessing.Sample.Producer", "samples\EventStreamProcessing.Sample.Producer\EventStreamProcessing.Sample.Producer.csproj", "{9EC9A2E0-2776-4178-9208-10F96A169884}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79B09293-6E07-470E-A939-DB7E2154EB54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79B09293-6E07-470E-A939-DB7E2154EB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79B09293-6E07-470E-A939-DB7E2154EB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79B09293-6E07-470E-A939-DB7E2154EB54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0034485C-2DDE-4C95-9BD3-81979DAD4872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0034485C-2DDE-4C95-9BD3-81979DAD4872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0034485C-2DDE-4C95-9BD3-81979DAD4872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0034485C-2DDE-4C95-9BD3-81979DAD4872}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29FE4580-AC29-4C9F-A6C7-0FADC8F371D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29FE4580-AC29-4C9F-A6C7-0FADC8F371D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29FE4580-AC29-4C9F-A6C7-0FADC8F371D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29FE4580-AC29-4C9F-A6C7-0FADC8F371D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4795B463-AED1-4A67-94FE-6F3E3991D52A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4795B463-AED1-4A67-94FE-6F3E3991D52A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4795B463-AED1-4A67-94FE-6F3E3991D52A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4795B463-AED1-4A67-94FE-6F3E3991D52A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{955DC4BA-0B42-4A4A-A674-33C8A3E8F588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{955DC4BA-0B42-4A4A-A674-33C8A3E8F588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{955DC4BA-0B42-4A4A-A674-33C8A3E8F588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{955DC4BA-0B42-4A4A-A674-33C8A3E8F588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EC9A2E0-2776-4178-9208-10F96A169884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EC9A2E0-2776-4178-9208-10F96A169884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EC9A2E0-2776-4178-9208-10F96A169884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EC9A2E0-2776-4178-9208-10F96A169884}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{79B09293-6E07-470E-A939-DB7E2154EB54} = {6DBC696E-8A4A-4688-8E38-53504A5A88D1}
+		{0034485C-2DDE-4C95-9BD3-81979DAD4872} = {6DBC696E-8A4A-4688-8E38-53504A5A88D1}
+		{29FE4580-AC29-4C9F-A6C7-0FADC8F371D9} = {F4300E8B-7118-4EBA-8843-79AE160321B6}
+		{4795B463-AED1-4A67-94FE-6F3E3991D52A} = {83637EDE-7B84-4ECC-9607-36905889D7B4}
+		{955DC4BA-0B42-4A4A-A674-33C8A3E8F588} = {83637EDE-7B84-4ECC-9607-36905889D7B4}
+		{9EC9A2E0-2776-4178-9208-10F96A169884} = {83637EDE-7B84-4ECC-9607-36905889D7B4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2808DBC5-E6BB-4561-AB54-DE32CA2B2208}
+	EndGlobalSection
+EndGlobal
