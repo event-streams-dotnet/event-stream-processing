@@ -1,13 +1,18 @@
 {
   "profiles": {
-    "EventStreamProcessing.Sample": {
+    "worker-local": {
       "commandName": "Project",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"
       }
     },
-    "Docker": {
-      "commandName": "Docker"
+    "worker-docker": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development",
+        "ConsumerOptions:Brokers": "broker:9092",
+        "ProducerOptions:Brokers": "broker:9092"
+      }
     }
   }
 }
