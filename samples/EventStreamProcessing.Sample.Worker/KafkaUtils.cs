@@ -17,7 +17,9 @@ namespace EventStreamProcessing.Sample.Worker
                 StatisticsIntervalMs = 5000,
                 SessionTimeoutMs = 6000,
                 AutoOffsetReset = AutoOffsetReset.Earliest,
-                EnablePartitionEof = true
+                EnablePartitionEof = true,
+                ReconnectBackoffMs = 30000, // 30 seconds
+                ReconnectBackoffMaxMs = 180000 // 3 minutes
             };
 
             var consumer = new ConsumerBuilder<int, string>(config)
