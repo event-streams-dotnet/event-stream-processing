@@ -1,5 +1,5 @@
 ---
-version: '3'
+version: '3.8'
 services:
   worker:
     build:
@@ -8,12 +8,12 @@ services:
     hostname: event-stream-worker
     container_name: event-stream-worker
     networks:
-      - event-stream-processing_event-stream-processing-network
+      - kafka-network
     environment:
       DOTNET_ENVIRONMENT: Development
       ConsumerOptions:Brokers: broker:9092 
       ProducerOptions:Brokers: broker:9092 
   
 networks:
-  event-stream-processing_event-stream-processing-network:
+  kafka-network:
     external: true
