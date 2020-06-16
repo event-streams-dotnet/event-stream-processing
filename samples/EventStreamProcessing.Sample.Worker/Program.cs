@@ -37,11 +37,9 @@ namespace EventStreamProcessing.Sample.Worker
                     services.AddSingleton<ILogger>(sp =>
                     {
                         var logger = sp.GetRequiredService<ILoggerFactory>().CreateLogger<KafkaWorker>();
-                        var consumerBroker = hostContext.Configuration["ConsumerOptions:Brokers"];
-                        var producerBroker = hostContext.Configuration["ProducerOptions:Brokers"];
                         logger.LogInformation($"Hosting Environment: {hostContext.HostingEnvironment.EnvironmentName}");
-                        logger.LogInformation($"Consumer Brokers: {consumerBroker}");
-                        logger.LogInformation($"Consumer Brokers: {producerBroker}");
+                        logger.LogInformation($"Consumer Brokers: {consumerOptions.Brokers}");
+                        logger.LogInformation($"Consumer Brokers: {producerOptions.Brokers}");
                         return logger;
                     });
 
@@ -60,7 +58,6 @@ namespace EventStreamProcessing.Sample.Worker
                     {
                         // Create logger, consumer, producers
                         var logger = sp.GetRequiredService<ILogger>();
-                        logger.LogInformation($"{hostContext.Configuration["x"]}");
                         var kafkaConsumer = KafkaUtils.CreateConsumer(
                             consumerOptions.Brokers, consumerOptions.TopicsList,
                             sp.GetRequiredService<ILogger>());
