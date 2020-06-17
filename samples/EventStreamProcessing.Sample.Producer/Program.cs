@@ -35,11 +35,11 @@ namespace EventStreamProcessing.Sample.Producer
             using (var producer = new ProducerBuilder<int, string>(config).Build())
             {
                 Console.WriteLine("\n-----------------------------------------------------------------------");
-                Console.WriteLine($"Producer {producer.Name} producing on topic {topicName}.");
+                Console.WriteLine($"Producer {producer.Name} producing on topic {topicName} to brokers {brokerList}.");
                 Console.WriteLine("-----------------------------------------------------------------------");
                 Console.WriteLine("To create a kafka message with integer key and string value:");
                 Console.WriteLine("> key value<Enter>");
-                Console.WriteLine("Ctrl-C to quit.\n");
+                Console.WriteLine("Ctrl-C then <Enter> to quit.\n");
 
                 while (!cancellationToken.IsCancellationRequested)
                 {
@@ -55,11 +55,11 @@ namespace EventStreamProcessing.Sample.Producer
                         // IO exception is thrown when ConsoleCancelEventArgs.Cancel == true.
                         break;
                     }
-                    if (text == null)
+                    if (text == null || text.Length == 0)
                     {
                         // Console returned null before 
                         // the CancelKeyPress was treated
-                        break;
+                        continue;
                     }
 
                     int key = 0;
@@ -99,11 +99,9 @@ namespace EventStreamProcessing.Sample.Producer
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true,
-                             reloadOnChange: true);
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables();
             return builder.Build();
         }
-
-
     }
 }

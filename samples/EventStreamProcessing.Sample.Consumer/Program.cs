@@ -21,6 +21,7 @@ namespace EventStreamProcessing.Sample.Consumer
                 .Get<ConsumerOptions>();
 
             Console.WriteLine($"Started consumer, Ctrl-C to stop consuming.");
+            Console.WriteLine($"Consumer Brokers: {consumerOptions.Brokers}");
 
             // Prevent the process from terminating
             CancellationTokenSource cts = new CancellationTokenSource();
@@ -40,8 +41,8 @@ namespace EventStreamProcessing.Sample.Consumer
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true,
-                             reloadOnChange: true);
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables();
             return builder.Build();
         }
 
