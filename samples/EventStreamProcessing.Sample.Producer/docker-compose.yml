@@ -1,0 +1,15 @@
+---
+version: '3.8'
+services:
+  event-stream-sample-producer:
+    build:
+      context: .
+      dockerfile: Producer.Dockerfile
+    networks:
+      - kafka-network
+    environment:
+      ProducerOptions:Brokers: broker:29092
+  
+networks:
+  kafka-network:
+    external: true

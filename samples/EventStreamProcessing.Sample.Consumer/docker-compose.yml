@@ -1,0 +1,15 @@
+---
+version: '3.8'
+services:
+  event-stream-sample-consumer:
+    build:
+      context: .
+      dockerfile: Consumer.Dockerfile
+    networks:
+      - kafka-network
+    environment:
+      ConsumerOptions:Brokers: broker:29092
+  
+networks:
+  kafka-network:
+    external: true
