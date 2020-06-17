@@ -27,4 +27,4 @@ ENTRYPOINT ["dotnet", "EventStreamProcessing.Sample.Worker.dll"]
 # docker build -t event-stream-worker --file Worker.Dockerfile .
 
 # cd samples/EventStreamProcessing.Sample.Worker/
-# docker-compose up --build
+# docker-compose up --build -d

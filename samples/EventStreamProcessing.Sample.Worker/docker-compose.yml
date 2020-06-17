@@ -1,18 +1,15 @@
 ---
 version: '3.8'
 services:
-  worker:
+  event-stream-worker:
     build:
       context: ../../
       dockerfile: Worker.Dockerfile
-    hostname: event-stream-worker
-    container_name: event-stream-worker
     networks:
       - kafka-network
     environment:
-      DOTNET_ENVIRONMENT: Development
-      ConsumerOptions:Brokers: broker:9092 
-      ProducerOptions:Brokers: broker:9092 
+      ConsumerOptions:Brokers: broker:29092 
+      ProducerOptions:Brokers: broker:29092 
   
 networks:
   kafka-network:
