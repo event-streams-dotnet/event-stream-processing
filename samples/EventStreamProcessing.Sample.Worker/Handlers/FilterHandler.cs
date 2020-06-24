@@ -8,15 +8,12 @@ namespace EventStreamProcessing.Sample.Worker.Handlers
 {
     public class FilterHandler : MessageHandler
     {
-        private readonly IDictionary<int, string> languageStore;
         private readonly Func<Message<int, string>, bool> filter;
         private readonly ILogger logger;
 
-        public FilterHandler(IDictionary<int, string> languageStore,
-            Func<Message<int, string>, bool> filter,
+        public FilterHandler(Func<Message<int, string>, bool> filter,
             ILogger logger)
         {
-            this.languageStore = languageStore;
             this.filter = filter;
             this.logger = logger;
         }

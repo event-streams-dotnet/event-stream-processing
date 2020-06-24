@@ -79,7 +79,6 @@ namespace EventStreamProcessing.Sample.Worker
                             new EnrichmentHandler(
                                 sp.GetRequiredService<IDictionary<int, string>>(), logger),
                             new FilterHandler(
-                                sp.GetRequiredService<IDictionary<int, string>>(),
                                 m => !m.Value.Contains("Hello"), logger) // Filter out English greetings
                         };
 
