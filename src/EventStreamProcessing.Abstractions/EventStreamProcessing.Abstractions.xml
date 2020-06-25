@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EventStreamProcessing.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:EventStreamProcessing.Abstractions.EventProcessor`2">
+            <summary>
+            Event stream processor.
+            </summary>
+            <typeparam name="TSourceEvent">Source event type.</typeparam>
+            <typeparam name="TSinkEvent">Sink event type.</typeparam>
+        </member>
+        <member name="F:EventStreamProcessing.Abstractions.EventProcessor`2.consumer">
+            <summary>
+            Event consumer.
+            </summary>
+        </member>
+        <member name="F:EventStreamProcessing.Abstractions.EventProcessor`2.producer">
+            <summary>
+            Event producer.
+            </summary>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.EventProcessor`2.#ctor(EventStreamProcessing.Abstractions.IEventConsumer{`0},EventStreamProcessing.Abstractions.IEventProducer{`1},EventStreamProcessing.Abstractions.IMessageHandler[])">
+            <summary>
+            Event stream processor constructor.
+            </summary>
+            <param name="consumer">Event consumer.</param>
+            <param name="producer">Event producer.</param>
+            <param name="handlers">Event handlers.</param>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.EventProcessor`2.Process(System.Threading.CancellationToken)">
+            <summary>
+            Process event stream.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Task which will complete when Process finishes.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.EventProcessorBase">
+            <summary>
+            Event stream processor base.
+            </summary>
+        </member>
+        <member name="F:EventStreamProcessing.Abstractions.EventProcessorBase.handlers">
+            <summary>
+            Message handlers.
+            </summary>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.EventProcessorBase.#ctor(EventStreamProcessing.Abstractions.IMessageHandler[])">
+            <summary>
+            Event stream processor base constructor.
+            </summary>
+            <param name="handlers">Event handlers.</param>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.EventProcessorBase.BuildHandlerChain">
+            <summary>
+            Build handler chain.
+            </summary>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.EventProcessorWithResult`3">
+            <summary>
+            Event stream processor with result.
+            </summary>
+            <typeparam name="TSourceEvent">Source event type.</typeparam>
+            <typeparam name="TSinkEvent">Sink event type.</typeparam>
+            <typeparam name="TResult">Result type.</typeparam>
+        </member>
+        <member name="F:EventStreamProcessing.Abstractions.EventProcessorWithResult`3.consumer">
+            <summary>
+            Event consumer.
+            </summary>
+        </member>
+        <member name="F:EventStreamProcessing.Abstractions.EventProcessorWithResult`3.producer">
+            <summary>
+            Event consumer.
+            </summary>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.EventProcessorWithResult`3.#ctor(EventStreamProcessing.Abstractions.IEventConsumer{`0},EventStreamProcessing.Abstractions.IEventProducerAsync{`1,`2},EventStreamProcessing.Abstractions.IMessageHandler[])">
+            <summary>
+            Event stream processor constructor.
+            </summary>
+            <param name="consumer">Event consumer.</param>
+            <param name="producer">Event producer.</param>
+            <param name="handlers">Event handlers.</param>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.EventProcessorWithResult`3.ProcessWithResult(System.Threading.CancellationToken)">
+            <summary>
+            Process event stream with result.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Task with result.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.IEventConsumer`1">
+            <summary>
+            Event consumer.
+            </summary>
+            <typeparam name="TSourceEvent">Source event type.</typeparam>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.IEventConsumer`1.ConsumeEvent(System.Threading.CancellationToken)">
+            <summary>
+            Consume event.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Source event.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.IEventProcessor">
+            <summary>
+            Event stream processor.
+            </summary>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.IEventProcessor.Process(System.Threading.CancellationToken)">
+            <summary>
+            Process event.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Task which will complete when Process finishes.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.IEventProcessorWithResult`1">
+            <summary>
+            Event stream processor with result.
+            </summary>
+            <typeparam name="TResult">Result type.</typeparam>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.IEventProcessorWithResult`1.ProcessWithResult(System.Threading.CancellationToken)">
+            <summary>
+            Process event stream with result.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Task with result.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.IEventProducer`1">
+            <summary>
+            Event producer.
+            </summary>
+            <typeparam name="TSinkEvent">Sink event type.</typeparam>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.IEventProducer`1.ProduceEvent(`0)">
+            <summary>
+            Produce event.
+            </summary>
+            <param name="sinkEvent">Sink event.</param>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.IEventProducerAsync`2">
+            <summary>
+            Async event producer.
+            </summary>
+            <typeparam name="TSinkEvent">Sink event type.</typeparam>
+            <typeparam name="TResult">Result type.</typeparam>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.IEventProducerAsync`2.ProduceEventAsync(`0)">
+            <summary>
+            Produce event
+            </summary>
+            <param name="sinkEvent">Sink event.</param>
+            <returns>Task which will complete when Produce finishes.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.IMessageHandler">
+            <summary>
+            Message handler.
+            </summary>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.IMessageHandler.SetNextHandler(EventStreamProcessing.Abstractions.IMessageHandler)">
+            <summary>
+            Set next handler.
+            </summary>
+            <param name="nextHandler">Next handler.</param>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.IMessageHandler.HandleMessage(EventStreamProcessing.Abstractions.Message)">
+            <summary>
+            Handle message.
+            </summary>
+            <param name="sourceMessage">Source message.</param>
+            <returns>Task which will complete when message is handled.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.Message">
+            <summary>
+            Abstract message.
+            </summary>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.MessageHandler">
+            <summary>
+            Message handler.
+            </summary>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.MessageHandler.SetNextHandler(EventStreamProcessing.Abstractions.IMessageHandler)">
+            <summary>
+            Set next handler.
+            </summary>
+            <param name="nextHandler">Next handler.</param>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.MessageHandler.HandleMessage(EventStreamProcessing.Abstractions.Message)">
+            <summary>
+            Handle message.
+            </summary>
+            <param name="sourceMessage">Source message.</param>
+            <returns>Task which will complete when message is handled.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Abstractions.Message`2">
+            <summary>
+            Message with key and value.
+            </summary>
+            <typeparam name="TKey">Key type.</typeparam>
+            <typeparam name="TValue">Value type.</typeparam>
+        </member>
+        <member name="P:EventStreamProcessing.Abstractions.Message`2.Key">
+            <summary>
+            Message key.
+            </summary>
+        </member>
+        <member name="P:EventStreamProcessing.Abstractions.Message`2.Value">
+            <summary>
+            Message value.
+            </summary>
+        </member>
+        <member name="M:EventStreamProcessing.Abstractions.Message`2.#ctor(`0,`1)">
+            <summary>
+            Message constructor.
+            </summary>
+            <param name="key">Key.</param>
+            <param name="value">Value.</param>
+        </member>
+    </members>
+</doc>
