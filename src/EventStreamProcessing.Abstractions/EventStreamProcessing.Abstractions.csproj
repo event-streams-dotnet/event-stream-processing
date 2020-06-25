@@ -5,10 +5,11 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Tony Sneed</Authors>
     <Company>Tony Sneed</Company>
-    <Description>Event stream processing micro-framework</Description>
+    <Description>Event stream processing micro-framework.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/event-streams-dotnet/event-stream-processing</PackageProjectUrl>
     <PackageIcon>event-streams-icon.png</PackageIcon>
+    <PackageTags>event-streams event-stream-processing apache-kafka kafka</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

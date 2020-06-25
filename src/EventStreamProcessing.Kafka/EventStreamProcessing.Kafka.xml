@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EventStreamProcessing.Kafka</name>
+    </assembly>
+    <members>
+        <member name="T:EventStreamProcessing.Kafka.KafkaEventConsumer`2">
+            <summary>
+            Kafka event consumer.
+            </summary>
+            <typeparam name="TKey">Message key type.</typeparam>
+            <typeparam name="TValue">Message value type.</typeparam>
+        </member>
+        <member name="M:EventStreamProcessing.Kafka.KafkaEventConsumer`2.#ctor(Confluent.Kafka.IConsumer{`0,`1},Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Kafka event consumer constructor.
+            </summary>
+            <param name="consumer">Kafka consumer.</param>
+            <param name="logger">Logger.</param>
+        </member>
+        <member name="M:EventStreamProcessing.Kafka.KafkaEventConsumer`2.ConsumeEvent(System.Threading.CancellationToken)">
+            <summary>
+            Consume Kafka event.
+            </summary>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Kafka message.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Kafka.KafkaEventProcessor`4">
+            <summary>
+            Kafka event processor.
+            </summary>
+            <typeparam name="TSourceKey">Source message key type.</typeparam>
+            <typeparam name="TSourceValue">Source message value type.</typeparam>
+            <typeparam name="TSinkKey">Sink message key type.</typeparam>
+            <typeparam name="TSinkValue">Sink message value type.</typeparam>
+        </member>
+        <member name="M:EventStreamProcessing.Kafka.KafkaEventProcessor`4.#ctor(EventStreamProcessing.Abstractions.IEventConsumer{Confluent.Kafka.Message{`0,`1}},EventStreamProcessing.Abstractions.IEventProducer{Confluent.Kafka.Message{`2,`3}},EventStreamProcessing.Abstractions.IMessageHandler[])">
+            <summary>
+            Kafka event processor constructor.
+            </summary>
+            <param name="consumer">Event consumer.</param>
+            <param name="producer">Event producer.</param>
+            <param name="handlers">Event handlers.</param>
+        </member>
+        <member name="M:EventStreamProcessing.Kafka.KafkaEventProcessor`4.Process(System.Threading.CancellationToken)">
+            <summary>
+            Process event.
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Task which will complete when Process finishes.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Kafka.KafkaEventProcessorWithResult`4">
+            <summary>
+            Kafka event processor with result.
+            </summary>
+            <typeparam name="TSourceKey">Source message key type.</typeparam>
+            <typeparam name="TSourceValue">Source message value type.</typeparam>
+            <typeparam name="TSinkKey">Sink message key type.</typeparam>
+            <typeparam name="TSinkValue">Sink message value type.</typeparam>
+        </member>
+        <member name="M:EventStreamProcessing.Kafka.KafkaEventProcessorWithResult`4.#ctor(EventStreamProcessing.Abstractions.IEventConsumer{Confluent.Kafka.Message{`0,`1}},EventStreamProcessing.Abstractions.IEventProducerAsync{Confluent.Kafka.Message{`2,`3},Confluent.Kafka.DeliveryResult{`2,`3}},EventStreamProcessing.Abstractions.IMessageHandler[])">
+            <summary>
+            Kafka event processor constructor.
+            </summary>
+            <param name="consumer">Event consumer.</param>
+            <param name="producer">Event producer.</param>
+            <param name="handlers">Event handlers.</param>
+        </member>
+        <member name="M:EventStreamProcessing.Kafka.KafkaEventProcessorWithResult`4.ProcessWithResult(System.Threading.CancellationToken)">
+            <summary>
+            Process event.
+            </summary>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Task which will complete when Process finishes.</returns>
+        </member>
+        <member name="T:EventStreamProcessing.Kafka.KafkaEventProducer`2">
+            <summary>
+            Kafka event producer.
+            </summary>
+            <typeparam name="TKey">Message key type.</typeparam>
+            <typeparam name="TValue">Message value type.</typeparam>
+        </member>
+        <member name="M:EventStreamProcessing.Kafka.KafkaEventProducer`2.#ctor(Confluent.Kafka.IProducer{`0,`1},System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Kafka event producer constructor.
+            </summary>
+            <param name="producer">Kafka producer.</param>
+            <param name="topic">Kafka topic.</param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:EventStreamProcessing.Kafka.KafkaEventProducer`2.ProduceEvent(Confluent.Kafka.Message{`0,`1})">
+            <summary>
+            Produce Kafka event.
+            </summary>
+            <param name="sinkEvent">Kafka sink message.</param>
+        </member>
+        <member name="T:EventStreamProcessing.Kafka.KafkaEventProducerAsync`2">
+            <summary>
+            Kafka event producer.
+            </summary>
+            <typeparam name="TKey">Message key type.</typeparam>
+            <typeparam name="TValue">Message value type.</typeparam>
+        </member>
+        <member name="M:EventStreamProcessing.Kafka.KafkaEventProducerAsync`2.#ctor(Confluent.Kafka.IProducer{`0,`1},System.String,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Kafka event producer constructor.
+            </summary>
+            <param name="producer">Kafka producer.</param>
+            <param name="topic">Kafka topic.</param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:EventStreamProcessing.Kafka.KafkaEventProducerAsync`2.ProduceEventAsync(Confluent.Kafka.Message{`0,`1})">
+            <summary>
+            Produce Kafka event.
+            </summary>
+            <param name="sinkEvent">Kafka sink message.</param>
+            <returns>Task which will complete when Produce finishes.</returns>
+        </member>
+    </members>
+</doc>

@@ -2,6 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Tony Sneed</Authors>
+    <Description>Event stream processing micro-framework for Apache Kafka.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/event-streams-dotnet/event-stream-processing</PackageProjectUrl>
+    <PackageIcon>event-streams-icon.png</PackageIcon>
+    <PackageTags>event-streams event-stream-processing apache-kafka kafka</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Tony\Source\event-stream-processing\src\EventStreamProcessing.Kafka\EventStreamProcessing.Kafka.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\Tony\Source\event-stream-processing\src\EventStreamProcessing.Kafka\EventStreamProcessing.Kafka.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +26,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EventStreamProcessing.Abstractions\EventStreamProcessing.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\images\event-streams-icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
