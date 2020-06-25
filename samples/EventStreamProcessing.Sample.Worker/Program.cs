@@ -63,10 +63,10 @@ namespace EventStreamProcessing.Sample.Worker
                             sp.GetRequiredService<ILogger>());
                         var producerOptions = sp.GetRequiredService<ProducerOptions>();
                         var kafkaErrorProducer = KafkaUtils.CreateProducer(
-                            producerOptions.Brokers, producerOptions.ValidationTopic,
+                            producerOptions.Brokers,
                             sp.GetRequiredService<ILogger>());
                         var kafkaFinalProducer = KafkaUtils.CreateProducer(
-                            producerOptions.Brokers, producerOptions.FinalTopic,
+                            producerOptions.Brokers,
                             sp.GetRequiredService<ILogger>());
 
                         // Create handlers

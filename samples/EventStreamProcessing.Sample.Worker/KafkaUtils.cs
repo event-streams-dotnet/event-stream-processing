@@ -43,8 +43,7 @@ namespace EventStreamProcessing.Sample.Worker
             return consumer;
         }
 
-        public static IProducer<int, string> CreateProducer(string brokerList,
-            string topic, ILogger logger)
+        public static IProducer<int, string> CreateProducer(string brokerList, ILogger logger)
         {
             var config = new ProducerConfig
             {
