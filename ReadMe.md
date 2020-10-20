@@ -119,50 +119,50 @@ docker-compose up --build -d
 
 #### 2. Start an instance of the **Sample Worker** service.
 
-    Option 1. Open a new Powershell window and run the following command:
+Option 1. Open a new Powershell window and run the following command:
 
-    ```
-    cd samples/EventStreamProcessing.Sample.Worker
-    dotnet run
-    ```
+```
+cd samples/EventStreamProcessing.Sample.Worker
+dotnet run
+```
 
-    Option 2. Visual Studio 2019
+Option 2. Visual Studio 2019
 
-    1. Right-click on the `EventStreamProcessing.Sample.Worker` project in the Solution Explorer and select *Set as Startup Project*
-    2. Right-Click on the project again and select "Rebuild"
-    3. Press `CTRL + F5` (aka 'start without debugging') 
+  1. Right-click on the `EventStreamProcessing.Sample.Worker` project in the Solution Explorer and select *Set as Startup Project*
+  2. Right-Click on the project again and select "Rebuild"
+  3. Press `CTRL + F5` (aka 'start without debugging') 
 
 #### 3. Start an instance of the the **Sample Consumer** app.
 
-    Option 1. Open a new PowerShell window and run the following commands
+Option 1. Open a new PowerShell window and run the following commands
 
-    ```
-    cd samples/EventStreamProcessing.Sample.Consumer
-    dotnet run
-    ```
+```
+cd samples/EventStreamProcessing.Sample.Consumer
+dotnet run
+```
 
-    Option 2. Using Visual Studio 2019
+Option 2. Using Visual Studio 2019
 
-    1. Right-click on the `EventStreamProcessing.Sample.Consumer` project in the Solution Explorer and select *Set as Startup Project*
-    2. Right-Click on the project again and select "Rebuild"
-    3. Press `CTRL + F5` (aka 'start without debugging') 
+  1. Right-click on the `EventStreamProcessing.Sample.Consumer` project in the Solution Explorer and select *Set as Startup Project*
+  2. Right-Click on the project again and select "Rebuild"
+  3. Press `CTRL + F5` (aka 'start without debugging') 
 
-    > Bonus: If you are using a WPF app or other GUI for the consumer, start that up now as well.
+  > Bonus: If you are using a WPF app or other GUI for the consumer, start that up now as well.
 
 #### 4. In a new terminal start the **Sample Producer** app.
 
-    Option 1. Open a new PowerShell window and run the following commands
+Option 1. Open a new PowerShell window and run the following commands
 
-    ```
-    cd samples/EventStreamProcessing.Sample.Producer
-    dotnet run
-    ```
+```
+cd samples/EventStreamProcessing.Sample.Producer
+dotnet run
+```
 
-    Option 2. Using Visual Studio 2019
+Option 2. Using Visual Studio 2019
 
-    1. Right-click on the `EventStreamProcessing.Sample.Producer` project in the Solution Explorer and select *Set as Startup Project*
-    2. Right-Click on the project again and select "Rebuild"
-    3. Press `CTRL + F5` (aka 'start without debugging') 
+  1. Right-click on the `EventStreamProcessing.Sample.Producer` project in the Solution Explorer and select *Set as Startup Project*
+  2. Right-Click on the project again and select "Rebuild"
+  3. Press `CTRL + F5` (aka 'start without debugging') 
 
 At this point, you should be able to see something similar to the following screenshot; with the Producer, Worker and Confluent running.
 
