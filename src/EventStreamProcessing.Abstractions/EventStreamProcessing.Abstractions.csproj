@@ -13,11 +13,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\Tony\Source\event-stream-processing\src\EventStreamProcessing.Abstractions\EventStreamProcessing.Abstractions.xml</DocumentationFile>
+    <DocumentationFile>EventStreamProcessing.Abstractions.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\Tony\Source\event-stream-processing\src\EventStreamProcessing.Abstractions\EventStreamProcessing.Abstractions.xml</DocumentationFile>
+    <DocumentationFile>EventStreamProcessing.Abstractions.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

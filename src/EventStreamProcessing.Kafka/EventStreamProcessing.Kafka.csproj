@@ -12,11 +12,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\Tony\Source\event-stream-processing\src\EventStreamProcessing.Kafka\EventStreamProcessing.Kafka.xml</DocumentationFile>
+    <DocumentationFile>EventStreamProcessing.Kafka.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\Tony\Source\event-stream-processing\src\EventStreamProcessing.Kafka\EventStreamProcessing.Kafka.xml</DocumentationFile>
+    <DocumentationFile>EventStreamProcessing.Kafka.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
